@@ -2,7 +2,6 @@
 #Date: 11/4/2022
 #Program: Lexical Scanner
 #Course: CPSC 323 Compilers
-
 file = open("input_scode.txt", "r")
 # There are a lot more keywords/separators/operators/identifiers, but because the file for hw 
 # doesn't have all of them, we are just going to keep it minimal to show we understand keywords/separators/operators/identifiers
@@ -21,28 +20,48 @@ print("--------------------------")
 str1 = ''
 count = 0
 while count < len(file_to_arr):
+    count = count + 1
     for element in file_to_arr[count]:
-        str1 += element
-        if str1 in keyword:
-            print("keyword            ", str1)
-            count = count + 1
+        try:
+            str_to_float = float(file_to_arr[count])
+            print("real            ", file_to_arr[count])
             str1 = ''
-        elif str1 in separator:
-            print("separator          ", str1)
-            count = count + 1
-            str1 = ''
-        elif str1 in operator:
-            print("operator           ", str1)
-            count = count + 1
-            str1 = ''
-        elif str1 in identifier:
-            print("identifier         ", str1)
-            count = count + 1
-            str1 = ''
-        elif (str1 == file_to_arr[count]).isdigit():
-            print("real               ", str1)
-            count = count + 1
-            str1 = ''
+        except:
+            str1 += element
+            if str1 in keyword:
+                print("keyword            ", str1)
+                str1 = ''
+            elif str1 in separator:
+                print("separator          ", str1)
+                str1 = ''
+            elif str1 in operator:
+                print("operator           ", str1)
+                str1 = ''
+            elif str1 in identifier:
+                print("identifier         ", str1)
+                str1 = ''
+
+
+        # if str1 in keyword:
+        #     print("keyword            ", str1)
+        #     count = count + 1
+        #     str1 = ''
+        # elif str1 in separator:
+        #     print("separator          ", str1)
+        #     count = count + 1
+        #     str1 = ''
+        # elif str1 in operator:
+        #     print("operator           ", str1)
+        #     count = count + 1
+        #     str1 = ''
+        # elif str1 in identifier:
+        #     print("identifier         ", str1)
+        #     count = count + 1
+        #     str1 = ''
+        # elif (str1 in file_to_arr[count]).isdigit():
+        #     print("real               ", str1)
+        #     count = count + 1
+        #     str1 = ''
             
 
         # try:
